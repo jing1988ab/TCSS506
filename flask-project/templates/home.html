@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% set active_page = 'home' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<form method="post">
+  <label for="date1">
+    Enter the birthday:
+    <input type="date" name="date1"/>
+  </label>
+
+  size
+  <input name="size"/>
+  <button type="submit">submit</button>
+</form>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Birth year</th>
+    </tr>
+  </thead>
+  <tbody>
+
+		{% for item in myData %}
+			<tr>
+				<td class="align-middle">{{ loop.index0 +1 }}</td>
+				<td class="align-middle"> <img src= {{ item ["thumbnail"]  }} style="max-height:50px;max-width:50px;"> {{item['text']}}</td>			
+				<td class="align-middle">{{ item['year']}}</td>			
+			</tr>
+		
+        {% endfor %}
+
+  </tbody>
+</table>
+ {% endblock %}
