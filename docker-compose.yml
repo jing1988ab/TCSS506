@@ -31,3 +31,12 @@ services:
       - ./postgres_data:/var/lib/postgresql/data
     depends_on:
       - flask_app  
+      
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8080:8080
+  
